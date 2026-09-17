@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feedback — Serverless AWS Project</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="page">
+
+    <div class="panel panel--dark">
+      <div class="panel-inner">
+        <p class="label-free">Feedback pipeline</p>
+        <h1>This form talks<br>straight to AWS.</h1>
+        <p class="lede">No form backend — every submission moves through a live serverless build.</p>
+
+        <ul class="pipeline">
+          <li>Static site</li>
+          <li class="arrow">→</li>
+          <li>API Gateway</li>
+          <li class="arrow">→</li>
+          <li>Lambda</li>
+          <li class="arrow">→</li>
+          <li>DynamoDB / SNS</li>
+        </ul>
+
+        <div class="stat">
+          <div class="stat-number" id="totalCount">—</div>
+          <div class="stat-label">messages received so far</div>
+        </div>
+
+        <p class="stack-note">S3 · CloudFront · API Gateway · Lambda · DynamoDB · SNS</p>
+      </div>
+    </div>
+
+    <div class="panel panel--light">
+      <div class="panel-inner">
+        <h2>Send feedback</h2>
+        <p class="subtitle">Tell me what's working and what isn't.</p>
+
+        <form id="feedbackForm">
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Name <span class="req">*</span></label>
+              <input type="text" id="name" placeholder="Hisham Mohamed" required />
+            </div>
+            <div class="field">
+              <label for="email">Email <span class="req">*</span></label>
+              <input type="email" id="email" placeholder="hisham@example.com" required />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="subject">Topic <span class="req">*</span></label>
+            <input type="text" id="subject" placeholder="What's this about?" required />
+          </div>
+
+          <div class="field">
+            <label for="category">Category</label>
+            <select id="category">
+              <option value="general">General</option>
+              <option value="support">Technical support</option>
+              <option value="billing">Billing</option>
+              <option value="feedback">Feedback</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="message">Message <span class="req">*</span></label>
+            <textarea id="message" rows="5" placeholder="Write your message here..." required></textarea>
+          </div>
+
+          <button type="submit" id="submitBtn">
+            <span id="btnText">Send feedback</span>
+            <span id="btnLoader" class="loader" style="display:none;"></span>
+          </button>
+        </form>
+
+        <div id="successMsg" class="alert success" style="display:none;">
+          <strong>Sent.</strong> Thanks — I'll get back to you soon.
+        </div>
+        <div id="errorMsg" class="alert error" style="display:none;"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer">Built by Hisham Mohamed — Network & Cloud Security Engineer</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
