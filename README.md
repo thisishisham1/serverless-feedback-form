@@ -12,7 +12,7 @@
 
 ## What happens when you hit "Send"
  
-![Architecture diagram](architecture/architecture.png)
+![Architecture diagram](architecture/serverless.png)
  
 No form-backend SaaS. No PHP mailer script. Just six AWS services doing exactly one job each.
 
